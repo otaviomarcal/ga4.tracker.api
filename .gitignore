@@ -1,0 +1,10 @@
+.env
+credentials/*
+node_modules/
+dist/
+.serverless/
+serverless.yml
+*.log
+package-lock.json
+yarn.lock
+.vscode/

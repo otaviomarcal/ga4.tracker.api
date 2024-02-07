@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                 /* Versão do ECMAScript para compilação (outra opção: "ES5", "ES6", "ES7", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019") */
+    "module": "commonjs",               /* Sistema de módulos a ser usado (geralmente "commonjs" para Node.js) */
+    "outDir": "./dist",                 /* Diretório de saída para os arquivos JavaScript transpilados */
+    "rootDir": "./src",                 /* Diretório raiz dos arquivos TypeScript */
+    "strict": true,                     /* Habilita verificações de tipo estritas */
+    "skipLibCheck": true,               /* Evita a verificação de declarações de bibliotecas de definição de tipos */
+    "forceConsistentCasingInFileNames": true, /* Garante consistência no uso de maiúsculas/minúsculas nos nomes de arquivos */
+    "resolveJsonModule": true,          /* Habilita a importação de arquivos JSON diretamente */
+    "declaration": true,               /* Gera arquivos de declaração de tipos (.d.ts) para seu código */
+    "noImplicitAny": true,             /* Sinaliza erro em tipos implícitos "any" */
+    "strictNullChecks": true,          /* Sinaliza erro em tipos que podem ser nulos ou indefinidos */
+    "noUnusedLocals": true,            /* Sinaliza erro em variáveis locais não utilizadas */
+    "noUnusedParameters": false,        /* Sinaliza erro em parâmetros de funções não utilizados */
+    "allowSyntheticDefaultImports": true, /* Permite imports padrão sintéticos para módulos sem um export padrão */
+    "esModuleInterop": true            /* Habilita interoperabilidade ES/Node (necessário quando usando imports/export com Node.js) */
+  },
+  "include": [
+    "src/**/*.ts"                     /* Os arquivos TypeScript que devem ser incluídos na compilação */
+  ],
+  "exclude": [
+    "node_modules"                    /* Diretório a ser excluído da compilação TypeScript */
+  ]
+}

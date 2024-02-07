@@ -1,0 +1,47 @@
+service: AnalyticsAPI
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  memorySize: 2048
+  stage: ${opt:stage, 'dev'}
+  timeout: 30
+  region: sa-east-1
+  environment:
+    JWT_KEY: "YOUR_JWT_KEY"
+    GOOGLE_APPLICATION_CREDENTIALS: "YOUR_PATH_TO_GOOGLE_APPLICATION_CREDENTIALS.json"
+
+functions:
+  AnalyticsHandler:
+    handler: dist/handler.AnalyticsHandler
+    events:
+      - http: ANY /{proxy+}
+      - http: ANY /
+
+resources:
+  Resources:
+    AnalyticsServiceRole:
+      Type: AWS::IAM::Role
+      Properties:
+        RoleName: AnalyticsServiceRole
+        AssumeRolePolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+              Action:
+                - sts:AssumeRole
+        Policies:
+          - PolicyName: LambdaPolicy
+            PolicyDocument:
+              Version: "2012-10-17"
+              Statement:
+                - Effect: Allow
+                  Action:
+                    - "logs:CreateLogGroup"
+                    - "logs:CreateLogStream"
+                    - "logs:PutLogEvents"
+                  Resource: "arn:aws:logs:*:*:*"
